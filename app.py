@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import datetime
 from pawpal_system import Owner, Pet, Task, Scheduler
 from main import initialize_demo
+from ai_care_assistant import generate_care_plan
 
 
 # Page configuration
@@ -45,7 +46,9 @@ if st.session_state.owner is None:
     st.info("👈 Please set up your owner profile in the sidebar to get started!")
 else:
     # Navigation tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["📅 Today's Schedule", "🐕 Manage Pets", "📝 Add Task", "⚙️ Manage Tasks"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "📅 Today's Schedule", "🐕 Manage Pets", "📝 Add Task", "⚙️ Manage Tasks", "🤖 AI Care Assistant"
+    ])
 
     # Tab 1: Today's Schedule
     with tab1:
@@ -218,3 +221,65 @@ else:
                         st.session_state.scheduler.removeTask(task.taskId)
                         st.success("Task deleted!")
                         st.rerun()
+
+    # Tab 5: AI Care Assistant
+    with tab5:
+        st.header("AI Care Assistant")
+        st.caption(
+            "Retrieves breed/age/activity-matched care guidelines, drafts a set of "
+            "tasks grounded in them, and self-checks the draft against your existing "
+            "schedule before showing it to you."
+        )
+
+        if "ai_care_plan_results" not in st.session_state:
+            st.session_state.ai_care_plan_results = {}
+
+        if len(st.session_state.owner.pets) == 0:
+            st.warning("Please add a pet first!")
+        else:
+            pet_options = {pet.name: pet.petId for pet in st.session_state.owner.pets}
+            selected_pet_name = st.selectbox("Select Pet", list(pet_options.keys()), key="ai_pet_select")
+            selected_pet_id = pet_options[selected_pet_name]
+            selected_pet = next(p for p in st.session_state.owner.pets if p.petId == selected_pet_id)
+
+            if st.button("Generate AI Care Plan", key="generate_ai_plan_btn"):
+                with st.spinner(f"Consulting Gemini for a care plan for {selected_pet_name}..."):
+                    result = generate_care_plan(selected_pet, st.session_state.scheduler)
+                st.session_state.ai_care_plan_results[selected_pet_id] = result
+
+            result = st.session_state.ai_care_plan_results.get(selected_pet_id)
+
+            if result is not None:
+                st.divider()
+
+                if result.error:
+                    st.error(result.error)
+                    if "GEMINI_API_KEY" in result.error:
+                        st.info("Copy `.env.example` to `.env` and add your Gemini API key.")
+                else:
+                    st.success(
+                        f"Proposed {len(result.tasks)} task(s) using {len(result.guideline_ids_used)} "
+                        f"guideline(s) over {result.iterations_used} iteration(s)."
+                    )
+
+                    if result.guideline_ids_used:
+                        with st.expander("Guidelines used"):
+                            for gid in result.guideline_ids_used:
+                                st.write(f"- {gid}")
+
+                    for task in result.tasks:
+                        st.write(f"**{task.time.strftime('%H:%M')}** — {task.description} "
+                                 f"({task.duration} min, {task.frequency}, {task.priority} priority)")
+
+                    if result.remaining_conflicts:
+                        with st.expander("⚠️ Unresolved conflicts", expanded=True):
+                            for conflict in result.remaining_conflicts:
+                                st.warning(conflict)
+
+                    if result.tasks:
+                        if st.button("Add All to Schedule", key="add_ai_tasks_btn"):
+                            for task in result.tasks:
+                                st.session_state.owner.addTask(task)
+                            del st.session_state.ai_care_plan_results[selected_pet_id]
+                            st.success(f"Added {len(result.tasks)} task(s) to {selected_pet_name}'s schedule!")
+                            st.rerun()

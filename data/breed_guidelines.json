@@ -1,0 +1,136 @@
+{
+  "guidelines": [
+    {
+      "id": "ex-high-working-01",
+      "category": "exercise",
+      "species": ["dog"],
+      "breeds": ["Labrador Retriever", "Siberian Husky"],
+      "activity_levels": ["high"],
+      "age_range": null,
+      "guidance": "High-energy working/sporting breeds need 60-90 total minutes of vigorous daily exercise, ideally split into two sessions, to prevent weight gain and destructive behavior.",
+      "suggested_duration_minutes": 45,
+      "suggested_frequency": "daily",
+      "priority_hint": "high"
+    },
+    {
+      "id": "ex-generic-medium-01",
+      "category": "exercise",
+      "species": ["dog"],
+      "breeds": [],
+      "activity_levels": ["medium"],
+      "age_range": null,
+      "guidance": "Medium-activity dogs generally do well with two 20-30 minute walks/play sessions per day.",
+      "suggested_duration_minutes": 25,
+      "suggested_frequency": "daily",
+      "priority_hint": "medium"
+    },
+    {
+      "id": "ex-generic-low-senior-01",
+      "category": "exercise",
+      "species": ["dog"],
+      "breeds": [],
+      "activity_levels": ["low"],
+      "age_range": [7, 30],
+      "guidance": "Low-activity or senior dogs benefit from shorter, more frequent gentle walks (10-15 min) rather than one long outing, to reduce joint strain.",
+      "suggested_duration_minutes": 15,
+      "suggested_frequency": "daily",
+      "priority_hint": "medium"
+    },
+    {
+      "id": "feed-puppy-01",
+      "category": "feeding",
+      "species": ["dog", "cat"],
+      "breeds": [],
+      "activity_levels": [],
+      "age_range": [0, 1],
+      "guidance": "Puppies and kittens under 1 year typically need 3-4 smaller meals per day for steady energy and growth.",
+      "suggested_duration_minutes": 15,
+      "suggested_frequency": "daily",
+      "priority_hint": "high"
+    },
+    {
+      "id": "feed-adult-01",
+      "category": "feeding",
+      "species": ["dog", "cat"],
+      "breeds": [],
+      "activity_levels": [],
+      "age_range": [1, 7],
+      "guidance": "Adult cats and dogs generally do well on 2 measured meals per day, spaced roughly 8-12 hours apart.",
+      "suggested_duration_minutes": 10,
+      "suggested_frequency": "daily",
+      "priority_hint": "high"
+    },
+    {
+      "id": "feed-senior-01",
+      "category": "feeding",
+      "species": ["dog", "cat"],
+      "breeds": [],
+      "activity_levels": [],
+      "age_range": [7, 30],
+      "guidance": "Senior pets (7+) often benefit from smaller, more frequent meals and monitoring for weight change.",
+      "suggested_duration_minutes": 10,
+      "suggested_frequency": "daily",
+      "priority_hint": "medium"
+    },
+    {
+      "id": "health-labrador-01",
+      "category": "health",
+      "species": ["dog"],
+      "breeds": ["Labrador Retriever"],
+      "activity_levels": [],
+      "age_range": null,
+      "guidance": "Labradors are prone to hip dysplasia and obesity - watch body condition and avoid high-impact exercise on hard surfaces.",
+      "suggested_duration_minutes": null,
+      "suggested_frequency": null,
+      "priority_hint": "medium"
+    },
+    {
+      "id": "health-husky-01",
+      "category": "health",
+      "species": ["dog"],
+      "breeds": ["Siberian Husky"],
+      "activity_levels": [],
+      "age_range": null,
+      "guidance": "Huskies are prone to overheating in warm weather and are escape-prone - prefer early morning/evening exercise and secure enclosures.",
+      "suggested_duration_minutes": null,
+      "suggested_frequency": null,
+      "priority_hint": "medium"
+    },
+    {
+      "id": "health-beagle-01",
+      "category": "health",
+      "species": ["dog"],
+      "breeds": ["Beagle"],
+      "activity_levels": [],
+      "age_range": null,
+      "guidance": "Beagles are prone to weight gain and ear infections - monitor food portions and check/clean ears weekly.",
+      "suggested_duration_minutes": 5,
+      "suggested_frequency": "weekly",
+      "priority_hint": "low"
+    },
+    {
+      "id": "health-generic-01",
+      "category": "health",
+      "species": ["dog", "cat"],
+      "breeds": [],
+      "activity_levels": [],
+      "age_range": null,
+      "guidance": "All pets benefit from regular dental care (brushing or dental chews) and routine grooming appropriate to coat type.",
+      "suggested_duration_minutes": 10,
+      "suggested_frequency": "weekly",
+      "priority_hint": "low"
+    },
+    {
+      "id": "cat-enrichment-01",
+      "category": "enrichment",
+      "species": ["cat"],
+      "breeds": [],
+      "activity_levels": [],
+      "age_range": null,
+      "guidance": "Indoor cats need daily interactive play (wand toys, puzzle feeders) and a clean litter box checked at least once daily.",
+      "suggested_duration_minutes": 15,
+      "suggested_frequency": "daily",
+      "priority_hint": "medium"
+    }
+  ]
+}

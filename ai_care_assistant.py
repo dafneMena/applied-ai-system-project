@@ -57,7 +57,7 @@ class AIAssistantError(Exception):
     """Raised when a Gemini call fails or returns something unusable."""
 
 
-DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+DEFAULT_MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 
 ALLOWED_FREQUENCIES = {"one-time", "daily", "weekly", "monthly", "yearly"}
 ALLOWED_PRIORITIES = {"low", "medium", "high"}

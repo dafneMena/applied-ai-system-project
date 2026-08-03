@@ -1,0 +1,22 @@
+flowchart TD
+    User[["Human (pet owner)"]]
+    UI["Streamlit UI<br/>app.py"]
+    KB[("Knowledge base<br/>data/breed_guidelines.json")]
+    Retriever["Retriever<br/>care_guidelines.retrieve_guidelines()"]
+    Agent["Agent (LLM call)<br/>ai_care_assistant.generate_care_plan()<br/>-> Gemini structured JSON"]
+    Evaluator["Evaluator / Guardrails<br/>validate_task_dict()<br/>+ detectConflicts() self-check"]
+    Scheduler[("Domain model<br/>pawpal_system.Scheduler")]
+    Tester["Automated Tester<br/>tests/test_ai_care_assistant.py<br/>tests/test_care_guidelines.py<br/>(mocked LLM, offline)"]
+
+    User -->|"selects pet, clicks Generate"| UI
+    UI -->|"pet profile"| Retriever
+    KB --> Retriever
+    Retriever -->|"ranked guidelines"| Agent
+    Scheduler -->|"existing tasks"| Agent
+    Agent -->|"draft task list"| Evaluator
+    Scheduler -->|"detectConflicts()"| Evaluator
+    Evaluator -.->|"conflicts found: retry, up to 3x"| Agent
+    Evaluator -->|"validated plan + any flagged conflicts"| UI
+    UI -->|"human reviews, clicks Add All to Schedule"| Scheduler
+    Tester -.->|"verifies offline"| Retriever
+    Tester -.->|"verifies offline"| Evaluator

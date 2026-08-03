@@ -1,7 +1,7 @@
 {
   "guidelines": [
     {
-      "id": "ex-high-working-01",
+      "id": "high-working",
       "category": "exercise",
       "species": ["dog"],
       "breeds": ["Labrador Retriever", "Siberian Husky"],
@@ -13,7 +13,7 @@
       "priority_hint": "high"
     },
     {
-      "id": "ex-generic-medium-01",
+      "id": "generic-medium",
       "category": "exercise",
       "species": ["dog"],
       "breeds": [],
@@ -25,7 +25,7 @@
       "priority_hint": "medium"
     },
     {
-      "id": "ex-generic-low-senior-01",
+      "id": "generic-low-senior",
       "category": "exercise",
       "species": ["dog"],
       "breeds": [],
@@ -37,7 +37,7 @@
       "priority_hint": "medium"
     },
     {
-      "id": "feed-puppy-01",
+      "id": "feed-puppy",
       "category": "feeding",
       "species": ["dog", "cat"],
       "breeds": [],
@@ -49,7 +49,7 @@
       "priority_hint": "high"
     },
     {
-      "id": "feed-adult-01",
+      "id": "feed-adult",
       "category": "feeding",
       "species": ["dog", "cat"],
       "breeds": [],
@@ -61,7 +61,7 @@
       "priority_hint": "high"
     },
     {
-      "id": "feed-senior-01",
+      "id": "feed-senior",
       "category": "feeding",
       "species": ["dog", "cat"],
       "breeds": [],
@@ -73,7 +73,7 @@
       "priority_hint": "medium"
     },
     {
-      "id": "health-labrador-01",
+      "id": "health-labrador",
       "category": "health",
       "species": ["dog"],
       "breeds": ["Labrador Retriever"],
@@ -85,7 +85,7 @@
       "priority_hint": "medium"
     },
     {
-      "id": "health-husky-01",
+      "id": "health-husky",
       "category": "health",
       "species": ["dog"],
       "breeds": ["Siberian Husky"],
@@ -97,7 +97,7 @@
       "priority_hint": "medium"
     },
     {
-      "id": "health-beagle-01",
+      "id": "health-beagle",
       "category": "health",
       "species": ["dog"],
       "breeds": ["Beagle"],
@@ -109,7 +109,7 @@
       "priority_hint": "low"
     },
     {
-      "id": "health-generic-01",
+      "id": "health-generic",
       "category": "health",
       "species": ["dog", "cat"],
       "breeds": [],

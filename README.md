@@ -152,6 +152,6 @@ Building the guardrail layers taught me that the hard part of "adding AI" to an 
 
 **Screenshot**:
 
-![Screenshot of homescreen of PawPal](assests\AI_Agent.png)
+![Screenshot of homescreen of PawPal](assests/AI_Agent.png)
 
 

@@ -144,13 +144,14 @@ If `GEMINI_API_KEY` isn't set, the rest of the app keeps working normally — on
 
 6. **Generate an AI care plan** — Go to the "🤖 AI Care Assistant" tab, pick a pet, and click "Generate AI Care Plan." The assistant retrieves relevant care guidelines for that pet's breed/age/activity level, asks Gemini to draft a set of tasks grounded in those guidelines, and automatically checks the draft for scheduling conflicts before you add it — any conflicts it couldn't resolve are flagged, not hidden. Click "Add All to Schedule" to accept the proposed tasks.
 
-**Screenshot**:
-
-![Screenshot of homescreen of PawPal](assests\AI_Agent.png)
-
-
 ## Reflection
 
 Building the guardrail layers taught me that the hard part of "adding AI" to an app isn't the API call — it's deciding what happens when the model is wrong, slow, or returns something malformed, and building the tests that prove those paths actually work. Reusing the base project's existing, already-tested conflict-detection logic instead of asking the LLM to reason about scheduling itself was the single decision that made this feature trustworthy rather than just impressive-looking.
 
 *The graded responsible-AI reflection lives in `model_card.md`, not here.*
+
+**Screenshot**:
+
+![Screenshot of homescreen of PawPal](assests\AI_Agent.png)
+
+

@@ -145,7 +145,9 @@ If `GEMINI_API_KEY` isn't set, the rest of the app keeps working normally — on
 6. **Generate an AI care plan** — Go to the "🤖 AI Care Assistant" tab, pick a pet, and click "Generate AI Care Plan." The assistant retrieves relevant care guidelines for that pet's breed/age/activity level, asks Gemini to draft a set of tasks grounded in those guidelines, and automatically checks the draft for scheduling conflicts before you add it — any conflicts it couldn't resolve are flagged, not hidden. Click "Add All to Schedule" to accept the proposed tasks.
 
 **Screenshot**:
+
 ![Screenshot of homescreen of PawPal](assests\AI_Agent.png)
+
 
 ## Reflection
 
